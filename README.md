@@ -75,7 +75,7 @@ A dynamic and customizable quiz application built with Django that fetches quest
 
 | Quiz Settings                         | Quiz in Progress              | Time                                || Results                             |
 | ------------------------------------- | ----------------------------- | ----------------------------------- || ----------------------------------- |
-| ![settings](screenshots/sukq1.png) | ![quiz](screenshots/sukq1.png) | ![Running](screenshots/sukq2.png) |  ![results](screenshots/sukq3.png) |
+| ![settings](screenshots/sukq1.png) | ![quiz](screenshots/sukq2.png) | ![Running](screenshots/sukq3.png) |  ![results](screenshots/sukq4.png) |
 
 
 
