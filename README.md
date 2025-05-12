@@ -1,12 +1,7 @@
 
----
-
-````markdown
 # 🧠 Django Quiz Application (OpenTDB API Based)
 
 A dynamic and customizable quiz application built with Django that fetches questions from the Open Trivia Database (OpenTDB) API. Supports multiple question types (MCQ, True/False) with options to select number of questions, category, and difficulty level.
-
----
 
 ## ✨ Features
 
@@ -40,7 +35,7 @@ A dynamic and customizable quiz application built with Django that fetches quest
    ```bash
    git clone https://github.com/sukantahirock/Quiz-Application.git
    cd Quiz-Application
-````
+   ```
 
 2. **Create a virtual environment and activate it**
 
