@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Question</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 2rem;
+        }
+        .question-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .progress {
+            height: 10px;
+            margin-bottom: 2rem;
+        }
+        .question-text {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+        .answer-option {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        .answer-option:hover {
+            border-color: #007bff;
+            background-color: #f8f9fa;
+        }
+        .progress-text {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="progress-text">
+                    Question {{ current }} of {{ total }}
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar"  
+                         aria-valuenow="{{ current }}" 
+                         aria-valuemin="0" 
+                         aria-valuemax="{{ total }}"></div>
+                </div>
+                
+                <div class="question-card">
+                    <h2 class="question-text">{{ question.question|safe }}</h2>
+                    
+                    <form method="post" action="{% url 'submit_answer' %}">
+                        {% csrf_token %}
+                        {% if question.type == 'boolean' %}
+                            <button type="submit" name="answer" value="True" class="answer-option">True</button>
+                            <button type="submit" name="answer" value="False" class="answer-option">False</button>
+                        {% else %}
+                            
+                                {% for answer in answers %}
+                                    <button type="submit" name="answer" value="{{ answer|safe }}" class="answer-option">
+                                        {{ answer|safe }}
+                                    </button>
+                                {% endfor %}
+                           
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
